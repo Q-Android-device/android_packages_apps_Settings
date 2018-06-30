@@ -37,4 +37,8 @@
     <string name="keywords_settings_reset">reset</string>
     <string name="safecallsos_settings">SafeCallsOS Privacy</string>
     <string name="safecallsos_settings_summary">SafeCallsOS privacy settings</string>
+
+    <!-- Fingerprint authentication vibration -->
+    <string name="fprint_sucess_vib_title">Fingerprint authentication vibration</string>
+    <string name="fprint_sucess_vib_summary">Vibrate on successful fingerprint authentication</string>
 </resources>
