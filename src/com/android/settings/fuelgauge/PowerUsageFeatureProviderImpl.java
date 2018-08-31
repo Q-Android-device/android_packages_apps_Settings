@@ -93,12 +93,93 @@ public class PowerUsageFeatureProviderImpl implements PowerUsageFeatureProvider 
 
     @Override
     public Estimate getEnhancedBatteryPrediction(Context context) {
-        return null;
+        long dischargeTime = -1L;
+        boolean basedOnUsage = false;
+        Uri uri = this.getEnhancedBatteryPredictionUri();
+        Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+
+        // Return null if cursor is null or empty
+        if (cursor == null || !cursor.moveToFirst()) {
+            try {
+                cursor.close();
+            }
+            catch (NullPointerException nullPointerException) {
+                 // cursor might be null
+            }
+            return null;
+        }
+
+        // Check if estimate is usage based
+        int colIndex = cursor.getColumnIndex(BATTERY_ESTIMATE_BASED_ON_USAGE_COL);
+        if (colIndex != -1)
+            basedOnUsage = cursor.getInt(colIndex) == 1;
+
+        // Calculate average discharge time based on average battery life
+        colIndex = cursor.getColumnIndex(AVERAGE_BATTERY_LIFE_COL);
+        if (colIndex != -1) {
+            long avgBattery = cursor.getLong(colIndex);
+            if (avgBattery != -1L) {
+                dischargeTime = Duration.ofMinutes(15L).toMillis();
+                if (Duration.ofMillis(avgBattery).compareTo(Duration.ofDays(1L)) >= 0)
+                    dischargeTime = Duration.ofHours(1L).toMillis();
+                dischargeTime = PowerUtil.roundTimeToNearestThreshold(avgBattery, dischargeTime);
+            }
+        }
+
+        colIndex = cursor.getColumnIndex(BATTERY_ESTIMATE_COL);
+        Estimate enhancedEstimate = new Estimate(cursor.getLong(colIndex),
+                                                 basedOnUsage, dischargeTime);
+        cursor.close();
+    
     }
 
     @Override
     public SparseIntArray getEnhancedBatteryPredictionCurve(Context context, long zeroTime) {
         return null;
+        SparseIntArray curve = new SparseIntArray();
+        Uri uri = this.getEnhancedBatteryPredictionCurveUri();
+        Cursor cursor = context.getContentResolver().query(uri, null, null, null, null);
+
+        // Return null if cursor is null or empty
+        if (cursor == null || !cursor.moveToFirst()) {
+            try {
+                cursor.close();
+            }
+            catch (NullPointerException nullPointerException) {
+                 // cursor might be null
+            }
+            return null;
+        }
+
+        // Get time/battery data indicies
+        int timestamp = cursor.getColumnIndex(TIMESTAMP_COL);
+        int batteryLevel = cursor.getColumnIndex(BATTERY_LEVEL_COL);
+
+        // Add time/battery data to a SparseIntArray and shift time data relative to starting time
+        while (cursor.moveToNext()) {
+            curve.append((int)(cursor.getLong(timestamp) - zeroTime), cursor.getInt(batteryLevel));
+        }
+
+        // Cleanup
+        try {
+            cursor.close();
+        }
+        catch (NullPointerException nullPointerException) {
+            // We already checked if cursor is null, so it shouldn't be dereferenced yet.
+        }
+        return curve;
+    }
+
+    private Uri getEnhancedBatteryPredictionCurveUri() {
+        return new Uri.Builder().scheme("content")
+                                .authority("com.google.android.apps.turbo.estimated_time_remaining")
+                                .appendPath("discharge_curve").build();
+    }
+
+    private Uri getEnhancedBatteryPredictionUri() {
+        return new Uri.Builder().scheme("content")
+                                .authority("com.google.android.apps.turbo.estimated_time_remaining")
+                                .appendPath("time_remaining").build();
     }
 
     @Override
@@ -141,8 +222,15 @@ public class PowerUsageFeatureProviderImpl implements PowerUsageFeatureProvider 
         Cursor cursor = context.getContentResolver().query(builder.build(), null, null, null, null);
 
         // Return null if cursor is null or empty
-        if (cursor == null || !cursor.moveToFirst())
+        if (cursor == null || !cursor.moveToFirst()) {
+            try {
+                cursor.close();
+            }
+            catch (NullPointerException nullPointerException) {
+                 // cursor might be null
+            }
             return false;
+        }
 
         // Check if early warning is available
         boolean earlyWarningAvailable  = cursor.getInt(cursor.getColumnIndex(IS_EARLY_WARNING_COL)) == 1;
