@@ -34,7 +34,7 @@ public class RegulatoryInfoPreferenceController extends AbstractPreferenceContro
 
     @Override
     public boolean isAvailable() {
-        return false
+        return false;
     }
 
     @Override
