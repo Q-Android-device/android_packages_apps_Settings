@@ -113,7 +113,7 @@ public class LockscreenDashboardFragment extends DashboardFragment
                 new OwnerInfoPreferenceController(context, this, lifecycle);
         controllers.add(mOwnerInfoPreferenceController);
 	controllers.add(new FPVibrationPreferenceController(context));
-
+	controllers.add(new FPUnlockKeystorePreferenceController(context));
         return controllers;
     }
 
@@ -149,6 +149,7 @@ public class LockscreenDashboardFragment extends DashboardFragment
                     controllers.add(new OwnerInfoPreferenceController(
                             context, null /* fragment */, null /* lifecycle */));
 		    controllers.add(new FPVibrationPreferenceController(context));
+		    controllers.add(new FPUnlockKeystorePreferenceController(context));
                     return controllers;
                 }
 
