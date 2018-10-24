@@ -849,7 +849,8 @@ public class UserSettings extends SettingsPreferenceFragment
                     pref.setSummary(R.string.user_admin);
                 }
                 pref.setTitle(user.name);
-                pref.setSelectable(false);
+                pref.setOnPreferenceClickListener(this);
+                pref.setSelectable(true);
             }
             if (pref == null) {
                 continue;
@@ -1064,6 +1065,8 @@ public class UserSettings extends SettingsPreferenceFragment
             if (!isInitialized(user)) {
                 mHandler.sendMessage(mHandler.obtainMessage(
                         MESSAGE_SETUP_USER, user.id, user.serialNumber));
+            } else {
+                switchUserNow(userId);
             }
         } else if (pref == mAddUser) {
             // If we allow both types, show a picker, otherwise directly go to
