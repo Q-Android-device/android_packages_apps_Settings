@@ -20,7 +20,6 @@ import com.android.settings.DateTimeSettings;
 import com.android.settings.DisplaySettings;
 import com.android.settings.IccLockSettings;
 import com.android.settings.MasterClear;
-import com.android.settings.SafeCallsOSSettings;
 import com.android.settings.Settings;
 import com.android.settings.TestingSettings;
 import com.android.settings.TetherSettings;
@@ -282,7 +281,6 @@ public class SettingsGateway {
             DataUsageList.class.getName(),
             ToggleBackupSettingFragment.class.getName(),
             PreviouslyConnectedDeviceDashboardFragment.class.getName(),
-            SafeCallsOSSettings.class.getName(),
             BatterySaverScheduleSettings.class.getName(),
             MobileNetworkListFragment.class.getName(),
             GlobalActionsPanelSettings.class.getName()
@@ -302,7 +300,6 @@ public class SettingsGateway {
             Settings.SecurityDashboardActivity.class.getName(),
             Settings.AccessibilitySettingsActivity.class.getName(),
             Settings.SystemDashboardActivity.class.getName(),
-            Settings.SafeCallsOSActivity.class.getName(),
             SupportDashboardActivity.class.getName(),
             // Home page > Network & Internet
             Settings.WifiSettingsActivity.class.getName(),
