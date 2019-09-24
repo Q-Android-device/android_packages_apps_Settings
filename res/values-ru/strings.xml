@@ -1374,7 +1374,7 @@
     <string name="baseband_version" msgid="1848990160763524801">"Прошивка модуля связи"</string>
     <string name="kernel_version" msgid="9192574954196167602">"Версия ядра"</string>
     <string name="build_number" msgid="3075795840572241758">"Номер сборки"</string>
-    <string name="module_version" msgid="7329118610303805859">"Системное обновление Google Play"</string>
+    <string name="module_version" msgid="7329118610303805859">"Системное обновление"</string>
     <string name="device_info_not_available" msgid="8062521887156825182">"Недоступно"</string>
     <string name="device_status_activity_title" msgid="1411201799384697904">"Общая информация"</string>
     <string name="device_status" msgid="607405385799807324">"Общая информация"</string>
@@ -1752,7 +1752,7 @@
     <string name="safety_and_regulatory_info" msgid="5103161279848427185">"Безопасность и соответствие стандартам"</string>
     <string name="copyright_title" msgid="865906688917260647">"Авторские права"</string>
     <string name="license_title" msgid="1990487604356037871">"Лицензия"</string>
-    <string name="module_license_title" msgid="258743239066841860">"Лицензии системного обновления Google Play"</string>
+    <string name="module_license_title" msgid="258743239066841860">"Лицензии системного обновления"</string>
     <string name="terms_title" msgid="7697580845616764642">"Условия использования"</string>
     <string name="webview_license_title" msgid="2813507464175738967">"Системная лицензия WebView"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"Обои"</string>
