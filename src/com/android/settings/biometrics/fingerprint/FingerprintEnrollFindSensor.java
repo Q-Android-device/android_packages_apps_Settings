@@ -50,11 +50,6 @@ public class FingerprintEnrollFindSensor extends BiometricEnrollBase {
     private FingerprintEnrollSidecar mSidecar;
     private boolean mNextClicked;
 
-    private static final int SENSOR_LOCATION_BACK = 0;
-    private static final int SENSOR_LOCATION_FRONT = 1;
-    private static final int SENSOR_LOCATION_LEFT = 2;
-    private static final int SENSOR_LOCATION_RIGHT = 3;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

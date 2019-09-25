@@ -29,7 +29,7 @@
         android:src="@drawable/fingerprint_sensor_location"
         android:scaleType="centerInside"/>
 
-     <ImageView
+    <ImageView
         android:id="@+id/fingerprint_sensor_location_front_overlay"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
