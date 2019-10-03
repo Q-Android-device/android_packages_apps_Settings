@@ -4791,4 +4791,6 @@
     <string name="dual_cdma_sim_warning_notification_channel_title" msgid="4144088600737896010">"Сочетание SIM-карт"</string>
     <string name="work_policy_privacy_settings" msgid="2348992644755730215">"Сведения о правилах организации"</string>
     <string name="work_policy_privacy_settings_summary" msgid="2236899807429121767">"Настройки, доступные системному администратору"</string>
+	<!-- Hide gesture navigation bar -->
+    <string name="hide_gesture_navigation_bar_title">Скрыть навигационную панель жестов</string>
 </resources>
