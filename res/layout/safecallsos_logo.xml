@@ -20,6 +20,5 @@
             android:layout_height="match_parent"
             android:src="@drawable/safecallsos_logo"
             android:adjustViewBounds="true"
-            android:tint="?android:attr/colorAccent"
             android:scaleType="fitCenter" />
 </LinearLayout>
