@@ -79,14 +79,13 @@ public class MobileNetworkSwitchControllerTest {
         mLifecycleOwner = () -> mLifecycle;
         mLifecycle = new Lifecycle(mLifecycleOwner);
 
-        when(mSubscription.isEmbedded()).thenReturn(true);
         when(mSubscription.getSubscriptionId()).thenReturn(mSubId);
         // Most tests want to have 2 available subscriptions so that the switch bar will show.
-        final SubscriptionInfo sub2 = mock(SubscriptionInfo.class);
+        SubscriptionInfo sub2 = mock(SubscriptionInfo.class);
         when(sub2.getSubscriptionId()).thenReturn(456);
         SubscriptionUtil.setAvailableSubscriptionsForTesting(Arrays.asList(mSubscription, sub2));
 
-        final String key = "prefKey";
+        String key = "prefKey";
         mController = new MobileNetworkSwitchController(mContext, key);
         mController.init(mLifecycle, mSubscription.getSubscriptionId());
 
@@ -101,18 +100,11 @@ public class MobileNetworkSwitchControllerTest {
     }
 
     @Test
-    public void isAvailable_pSIM_isNotAvailable() {
-        when(mSubscription.isEmbedded()).thenReturn(false);
-        mController.displayPreference(mScreen);
-        assertThat(mSwitchBar.isShowing()).isFalse();
-    }
-
-    @Test
-    public void displayPreference_oneEnabledSubscription_switchBarNotHidden() {
-        doReturn(true).when(mSubscriptionManager).isActiveSubId(mSubId);
+    public void displayPreference_oneEnabledSubscription_switchBarHidden() {
+        doReturn(true).when(mSubscriptionManager).isSubscriptionEnabled(mSubId);
         SubscriptionUtil.setAvailableSubscriptionsForTesting(Arrays.asList(mSubscription));
         mController.displayPreference(mScreen);
-        assertThat(mSwitchBar.isShowing()).isTrue();
+        assertThat(mSwitchBar.isShowing()).isFalse();
     }
 
     @Test
