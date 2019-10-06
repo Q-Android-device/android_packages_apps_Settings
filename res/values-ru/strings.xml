@@ -1741,7 +1741,7 @@
     <string name="location_access_summary" msgid="69031404093194341">"Разрешить приложениям использовать данные о вашем местоположении"</string>
     <string name="location_sources_heading" msgid="1278732419851088319">"Определение местоположения"</string>
     <string name="about_settings" product="tablet" msgid="593457295516533765">"О планшете"</string>
-    <string name="about_settings" product="default" msgid="1743378368185371685">"О телефоне"</string>
+    <string name="about_settings" product="default" msgid="1743378368185371685">"О SC.Phone"</string>
     <string name="about_settings" product="device" msgid="6717640957897546887">"Об устройстве"</string>
     <string name="about_settings" product="emulator" msgid="221313099578564438">"Об эмулированном устройстве"</string>
     <string name="about_settings_summary" msgid="3371517697156165959">"Просмотр юридической информации, состояния планшетного ПК и версии ПО"</string>
