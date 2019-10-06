@@ -24,7 +24,7 @@
 
    <!-- SafeCallsOS logo -->
     <com.android.settingslib.widget.LayoutPreference
-        android:key="stagos_logo"
+        android:key="safecallsos_about"
         android:layout="@layout/safecallsos_about"
         android:selectable="false"/>
 
