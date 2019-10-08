@@ -36,7 +36,4 @@
     <string name="reset_settings_summary">Reset SafeCallsOS feature preferences</string>
     <string name="keywords_settings_reset">reset</string>
 
-    <!-- Hide gesture navigation bar -->
-    <string name="hide_gesture_navigation_bar_title">Hide gesture navigation bar</string>
-
 </resources>
