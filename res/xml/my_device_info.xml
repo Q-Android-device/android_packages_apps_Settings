@@ -80,7 +80,8 @@
         android:order="32"
         android:title="@string/status_imei"
         settings:keywords="@string/keywords_imei_info"
-        android:summary="@string/imei_information_summary"/>
+        android:summary="@string/summary_placeholder"
+        settings:controller="com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController"/>
 
     <!-- Android version -->
     <Preference
