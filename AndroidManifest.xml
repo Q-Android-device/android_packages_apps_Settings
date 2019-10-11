@@ -3302,10 +3302,10 @@
         <!-- Begin crDroid Settings -->
         <activity android:name="Settings$crDroidSettingsLayoutActivity"
                 android:label="@string/crdroid_settings_title"
-                android:icon="@drawable/ic_homepage_crdroid"
+                android:icon="@drawable/ic_homepage_tweaks"
                 android:taskAffinity="com.android.settings"
                 android:parentActivityName="Settings">
-            <intent-filter android:priority="1">
+            <intent-filter android:priority="2">
                 <action android:name="com.android.settings.action.SETTINGS"/>
             </intent-filter>
             <meta-data android:name="com.android.settings.category"
