@@ -37,9 +37,9 @@
         <intent android:action="android.intent.action.POWER_USAGE_SUMMARY" />
     </shortcut>
     <shortcut
-        android:shortcutId="manifest-shortcut-a-syberia"
-        android:icon="@drawable/ic_shortcut_syberia"
-        android:shortcutShortLabel="@string/syberia_settings_title" >
+        android:shortcutId="manifest-shortcut-a-safecalls"
+        android:icon="@drawable/ic_settings_safecallsos"
+        android:shortcutShortLabel="@string/safecallsos_settings" >
         <intent
             android:action="android.intent.action.MAIN"
             android:targetPackage="com.app.vpn"

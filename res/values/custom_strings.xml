@@ -35,5 +35,6 @@
     <string name="reset_settings_title">Feature preferences</string>
     <string name="reset_settings_summary">Reset SafeCallsOS feature preferences</string>
     <string name="keywords_settings_reset">reset</string>
-
+    <string name="safecallsos_settings">SafeCallsOS Privacy</string>
+    <string name="safecallsos_settings_summary">SafeCallsOS privacy settings</string>
 </resources>
