@@ -21,6 +21,12 @@
     android:key="my_device_info_pref_screen"
     android:title="@string/about_settings">
 
+   <!-- SafeCallsOS logo -->
+    <com.android.settingslib.widget.LayoutPreference
+        android:key="safecallsos_about"
+        android:layout="@layout/safecallsos_about"
+        android:selectable="false"/>
+
     <!-- Device name -->
     <com.android.settings.widget.ValidatedEditTextPreference
         android:key="device_name"
@@ -83,15 +89,6 @@
         android:summary="@string/summary_placeholder"
         settings:controller="com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController"/>
 
-    <!-- Android version -->
-    <Preference
-        android:key="firmware_version"
-        android:order="42"
-        android:title="@string/firmware_version"
-        android:summary="@string/summary_placeholder"
-        android:fragment="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings"
-        settings:controller="com.android.settings.deviceinfo.firmwareversion.FirmwareVersionPreferenceController"/>
-
     <!--IP address -->
     <Preference
         android:key="wifi_ip_address"
@@ -128,13 +125,23 @@
         android:summary="@string/summary_placeholder"
         android:selectable="false"/>
 
-    <!-- Manual -->
+
+    <!-- Security patch -->
     <Preference
-        android:key="manual"
-        android:order="50"
-        android:title="@string/manual">
-        <intent android:action="android.settings.SHOW_MANUAL"/>
-    </Preference>
+        android:key="security_key"
+        android:order="48"
+        android:title="@string/security_patch"
+        settings:enableCopying="true"
+        settings:allowDividerAbove="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.SecurityPatchLevelPreferenceController"/>
+
+    <!-- Vendor security patch -->
+    <Preference
+        android:key="vendor_security_key"
+        android:order="49"
+        android:title="@*lineageos.platform:string/lineage_vendor_security_patch"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.firmwareversion.LineageVendorSecurityPatchLevelPreferenceController"/>
 
     <!-- Build number -->
     <Preference
@@ -142,7 +149,6 @@
         android:order="53"
         android:title="@string/build_number"
         android:summary="@string/summary_placeholder"
-        settings:allowDividerAbove="true"
         settings:enableCopying="true"
         settings:controller="com.android.settings.deviceinfo.BuildNumberPreferenceController"/>
 

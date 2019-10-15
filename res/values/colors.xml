@@ -146,6 +146,12 @@
 
     <!-- Dialog background color -->
     <color name="dialog_background">@*android:color/background_device_default_light</color>
+
     <color name="homepage_safecallsos_background">#B8CECD</color>
     <color name="homepage_tweaks_background">#3C7C86</color>
+
+    <color name="text_dark">#202020</color> <!-- Primary text color -->
+    <color name="about_background">#FAFAFA</color> <!-- Primary dark -->
+    <color name="about_dark_background">#FAFAFA</color> <!-- Primary light (Floating dialogs) -->
+    <color name="divider">#DCDCDC</color>
 </resources>

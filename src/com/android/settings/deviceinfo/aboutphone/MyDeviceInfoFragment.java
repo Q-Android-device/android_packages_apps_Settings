@@ -25,6 +25,9 @@ import android.os.Bundle;
 import android.os.UserManager;
 import android.provider.SearchIndexableResource;
 import android.view.View;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.fragment.app.Fragment;
 
 import com.android.settings.R;
 import com.android.settings.Utils;
@@ -33,8 +36,6 @@ import com.android.settings.deviceinfo.BluetoothAddressPreferenceController;
 import com.android.settings.deviceinfo.BuildNumberPreferenceController;
 import com.android.settings.deviceinfo.DeviceNamePreferenceController;
 import com.android.settings.deviceinfo.IpAddressPreferenceController;
-import com.android.settings.deviceinfo.ManualPreferenceController;
-import com.android.settings.deviceinfo.RegulatoryInfoPreferenceController;
 import com.android.settings.deviceinfo.UptimePreferenceController;
 import com.android.settings.deviceinfo.WifiMacAddressPreferenceController;
 import com.android.settings.deviceinfo.imei.ImeiInfoPreferenceController;
@@ -54,10 +55,23 @@ import java.util.List;
 public class MyDeviceInfoFragment extends DashboardFragment
         implements DeviceNamePreferenceController.DeviceNamePreferenceHost {
 
+    Fragment mContext;
+
     private static final String LOG_TAG = "MyDeviceInfoFragment";
-    //private static final String KEY_MY_DEVICE_INFO_HEADER = "my_device_info_header";
 
     private BuildNumberPreferenceController mBuildNumberPreferenceController;
+
+    public MyDeviceInfoFragment(Fragment context) {
+        mContext = context;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        view.setBackgroundColor(getResources().getColor(R.color.about_background));
+
+        return view;
+    }
 
     @Override
     public int getMetricsCategory() {
@@ -67,6 +81,11 @@ public class MyDeviceInfoFragment extends DashboardFragment
     @Override
     public int getHelpResource() {
         return R.string.help_uri_about;
+    }
+
+    @Override
+    protected String getLogTag() {
+        return LOG_TAG;
     }
 
     @Override
@@ -81,11 +100,6 @@ public class MyDeviceInfoFragment extends DashboardFragment
     @Override
     public void onStart() {
         super.onStart();
-    }
-
-    @Override
-    protected String getLogTag() {
-        return LOG_TAG;
     }
 
     @Override
@@ -105,8 +119,6 @@ public class MyDeviceInfoFragment extends DashboardFragment
         controllers.add(new IpAddressPreferenceController(context, lifecycle));
         controllers.add(new WifiMacAddressPreferenceController(context, lifecycle));
         controllers.add(new BluetoothAddressPreferenceController(context, lifecycle));
-        controllers.add(new RegulatoryInfoPreferenceController(context));
-        controllers.add(new ManualPreferenceController(context));
         controllers.add(new UptimePreferenceController(context, lifecycle));
         return controllers;
     }

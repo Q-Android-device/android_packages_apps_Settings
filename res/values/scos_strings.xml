@@ -47,4 +47,24 @@
     <!-- Fingerprint unlock keystore -->  
     <string name="fp_unlock_keystore_title">Fingerprint unlock</string>  
     <string name="fp_unlock_keystore_summary">Unlock device with fingerprint after reboot without PIN/Password/Pattern\nNote: at your own risk!</string>
+	
+    <!-- Selinux -->
+    <string name="selinux_status">Security status</string>
+    <string name="selinux_status_disabled">Disabled</string>
+    <string name="selinux_status_permissive">Permissive</string>
+    <string name="selinux_status_enforcing">Enforcing</string>
+
+    <!-- About phone cards -->
+    <string name="card1">Device Model</string>
+    <string name="card2">Status</string>
+    <string name="card3">Android\nVersion</string>
+    <string name="card4">SafeCallsOS Version</string>
+    <string name="card5">Security Status</string>
+    <string name="card6">Support</string>
+    <string name="cpu">CPU</string>
+    <string name="unknown">Unknown</string>
+    <string name="storage">Storage</string>
+    <string name="camera">Camera</string>
+    <string name="display">Display</string>
+    <string name="status_default">IMEI, MAC, etc.</string>
 </resources>
