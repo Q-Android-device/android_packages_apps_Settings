@@ -29,13 +29,13 @@
     <string name="device_info_default">Unknown</string>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Countdown for user taps to enable development settings -->
     <plurals name="show_dev_countdown">
-        <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from being a developer.</item>
-        <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from being a developer.</item>
+        <item quantity="one">You are now <xliff:g id="step_count">%1$d</xliff:g> step away from enabling development settings.</item>
+        <item quantity="other">You are now <xliff:g id="step_count">%1$d</xliff:g> steps away from enabling development settings.</item>
     </plurals>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Confirmation that developer settings are enabled -->
-    <string name="show_dev_on">You are now a developer!</string>
+    <string name="show_dev_on">You have enabled development settings!</string>
     <!-- [CHAR LIMIT=NONE] Device Info screen. Okay we get it, stop pressing, you already have it on -->
-    <string name="show_dev_already">No need, you are already a developer.</string>
+    <string name="show_dev_already">No need, you have already enabled development settings.</string>
 
     <!-- [CHAR LIMIT=NONE] Toast message when user attemps to launch developer otions before enabling it. -->
     <string name="dev_settings_disabled_warning">Please enable developer options first.</string>
@@ -3076,7 +3076,7 @@
     <!-- About phone screen,  setting option name  [CHAR LIMIT=40] -->
     <string name="build_number">Build number</string>
     <!-- About phone screen, tapping this button will take user to a seperate UI to check Google Play system update [CHAR LIMIT=60] -->
-    <string name="module_version">Google Play system update</string>
+    <string name="module_version">Mainline system update</string>
 
     <!-- About phone screen, show when a value of some status item is unavailable. -->
     <string name="device_info_not_available">Not available</string>
@@ -3718,9 +3718,9 @@
     <!-- Button title to factory data reset the entire device. The "(factory reset)" part is optional for translation. [CHAR LIMIT=30 BACKUP_MESSAGE_ID=3531267871084279512]-->
     <string name="master_clear_short_title">Erase all data (factory reset)</string>
     <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
-    <string name="master_clear_desc" product="tablet">This will erase all data from your tablet\u2019s <b>internal storage</b>, including:\n\n<li>Your Google Account</li>\n<li>System and app data and settings</li>\n<li>Downloaded apps</li></string>
+    <string name="master_clear_desc" product="tablet">"This will erase all data from your tablet\u2019s <b>internal storage</b>, including:\n\n<li>System and app data and settings</li>\n<li>Downloaded apps</li>"</string>
     <!-- SD card & phone storage settings screen, message on screen after user selects Factory data reset [CHAR LIMIT=NONE] -->
-    <string name="master_clear_desc" product="default">This will erase all data from your phone\u2019s <b>internal storage</b>, including:\n\n<li>Your Google Account</li>\n<li>System and app data and settings</li>\n<li>Downloaded apps</li></string>
+    <string name="master_clear_desc" product="default">"This will erase all data from your phone\u2019s <b>internal storage</b>, including:\n\n<li>System and app data and settings</li>\n<li>Downloaded apps</li>"</string>
     <!-- SD card & phone storage settings screen, instructions and list of current accounts.  The list of accounts follows this text[CHAR LIMIT=NONE] -->
     <string name="master_clear_accounts" product="default">\n\nYou are currently signed into the following accounts:\n</string>
     <!-- SD card & phone storage settings screen, notification if other users are present on the device [CHAR LIMIT=NONE] -->
@@ -3946,11 +3946,11 @@
 
     <!-- About --> <skip />
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
-    <string name="about_settings" product="tablet">About tablet</string>
+    <string name="about_settings" product="tablet">About SC.Tablet</string>
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
-    <string name="about_settings" product="default">About phone</string>
+    <string name="about_settings" product="default">About SC.Phone</string>
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
-    <string name="about_settings" product="device">About device</string>
+    <string name="about_settings" product="device">About SC.Device</string>
     <!-- Main settings screen, setting title for the user to go into the About phone screen -->
     <string name="about_settings" product="emulator">About emulated device</string>
     <!-- Main settings screen, setting summary for the user to go into the About phone screen-->
@@ -3973,7 +3973,7 @@
     <string name="license_title">License</string>
     <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
     <!-- About phone settings screen, setting option name to see licensing info for Google Play system updates [CHAR LIMIT=50] -->
-    <string name="module_license_title">Google Play system update licenses</string>
+    <string name="module_license_title">Mainline system update licenses</string>
     <!-- Note: this may be replaced by a more-specific title of the activity that will get launched --> <skip />
     <!-- About phone settings screen, setting option name to see terms and conditions -->
     <string name="terms_title">Terms and conditions</string>
@@ -8698,6 +8698,9 @@
     <!-- Generic label for suggestion card's ok button [CHAR LIMIT=20] -->
     <string name="suggestion_button_text">Ok</string>
 
+    <!-- Strings for suggestion card's close button [CHAR LIMIT=20] -->
+    <string name="suggestion_button_close">Close</string>
+
     <!-- [CHAR LIMIT=35] Feedback on the device -->
     <string name="device_feedback">Send feedback about this device</string>
 
@@ -9532,7 +9535,7 @@
     <string name="backup_disabled">Back up disabled</string>
 
     <!-- Summary of Android version info [CHAR LIMIT=NONE] -->
-    <string name="android_version_summary">Updated to Android <xliff:g id="version" example="6.0">%1$s</xliff:g></string>
+    <string name="android_version_summary">Updated to SafeCallsOS 17.0.0 - Android <xliff:g id="version" example="6.0">%1$s</xliff:g></string>
     <!-- Summary of Android version info (when there is a pending upgrade available) [CHAR LIMIT=NONE] -->
     <string name="android_version_pending_update_summary">Update available</string>
 
@@ -10834,6 +10837,8 @@
     <string name="preferred_network_mode_lte_gsm_wcdma_summary">Preferred network mode: GSM/WCDMA/LTE</string>
     <!-- CDMA+LTE/EVDO [CHAR LIMIT=NONE] -->
     <string name="preferred_network_mode_lte_cdma_evdo_summary">Preferred network mode: CDMA+LTE/EVDO</string>
+    <!-- LTE/CDMA/EvDo/GSM/WCDMA [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_lte_cdma_evdo_gsm_wcdma_summary">Preferred network mode: LTE/CDMA/EvDo/GSM/WCDMA</string>
     <!-- Global [CHAR LIMIT=NONE] -->
     <string name="preferred_network_mode_global_summary">Preferred network mode: Global</string>
     <!-- LTE / WCDMA [CHAR LIMIT=NONE] -->
@@ -10862,7 +10867,37 @@
     <string name="preferred_network_mode_tdscdma_cdma_evdo_gsm_wcdma_summary">Preferred network mode: TDSCDMA/CDMA/EvDo/GSM/WCDMA</string>
     <!-- LTE/TDSCDMA/CDMA/EvDo/GSM/WCDMA [CHAR LIMIT=NONE] -->
     <string name="preferred_network_mode_lte_tdscdma_cdma_evdo_gsm_wcdma_summary">Preferred network mode: LTE/TDSCDMA/CDMA/EvDo/GSM/WCDMA</string>
+    <!-- NR only [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_only_summary">Preferred network mode: NR only</string>
+    <!-- NR / LTE [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_lte_summary">Preferred network mode: NR / LTE</string>
+    <!-- NR/LTE/CDMA/EvDo [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_lte_cdma_evdo_summary">Preferred network mode: NR/LTE/CDMA/EvDo</string>
+    <!-- NR/LTE/GSM/WCDMA [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_lte_gsm_wcdma_summary">Preferred network mode: NR/LTE/GSM/WCDMA</string>
+    <!-- NR/LTE/TDSCDMA/CDMA/EvDo/GSM/WCDMA [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_lte_cdma_evdo_gsm_wcdma_summary">Preferred network mode: NR/LTE/CDMA/EvDo/GSM/WCDMA</string>
+    <!-- NR/LTE/WCDMA [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_lte_wcdma_summary">Preferred network mode: NR/LTE/WCDMA</string>
+    <!-- NR/LTE/TDSCDMA [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_lte_tdscdma_summary">Preferred network mode: NR/LTE/TDSCDMA</string>
+    <!-- NR/LTE/TDSCDMA/GSM [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_lte_tdscdma_gsm_summary">Preferred network mode: NR/LTE/TDSCDMA/GSM</string>
+    <!-- NR/LTE/TDSCDMA/WCDMA [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_lte_tdscdma_wcdma_summary">Preferred network mode: NR/LTE/TDSCDMA/WCDMA</string>
+    <!-- NR/LTE/TDSCDMA/GSM/WCDMA [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_lte_tdscdma_gsm_wcdma_summary">Preferred network mode: NR/LTE/TDSCDMA/GSM/WCDMA</string>
+    <!-- NR/LTE/TDSCDMA/CDMA/EvDo/GSM/WCDMA [CHAR LIMIT=NONE] -->
+    <string name="preferred_network_mode_nr_lte_tdscdma_cdma_evdo_gsm_wcdma_summary">Preferred network mode: NR/LTE/TDSCDMA/CDMA/EvDo/GSM/WCDMA</string>
 
+    <!-- Text for Network mode recommended [CHAR LIMIT=NONE] -->
+    <string name="network_recommended">\u0020(recommended)</string>
+    <!-- Text for Network 5g [CHAR LIMIT=NONE] -->
+    <string name="network_5G" translatable="false">5G</string>
+    <!-- Text for Network lte [CHAR LIMIT=NONE] -->
+    <string name="network_lte_pure" translatable="false">LTE</string>
+    <!-- Text for Network 4g [CHAR LIMIT=NONE] -->
+    <string name="network_4G_pure" translatable="false">4G</string>
     <!-- Text for Network lte [CHAR LIMIT=NONE] -->
     <string name="network_lte">LTE (recommended)</string>
     <!-- Text for Network 4g [CHAR LIMIT=NONE] -->
@@ -11314,5 +11349,4 @@
     <string name="work_policy_privacy_settings">Your work policy info</string>
     <!-- Summary for Enterprise Privacy settings, explaining what the user can expect to find under it [CHAR LIMIT=NONE]-->
     <string name="work_policy_privacy_settings_summary">Settings managed by your IT admin</string>
-
 </resources>

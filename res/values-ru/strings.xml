@@ -1374,7 +1374,7 @@
     <string name="baseband_version" msgid="1848990160763524801">"Прошивка модуля связи"</string>
     <string name="kernel_version" msgid="9192574954196167602">"Версия ядра"</string>
     <string name="build_number" msgid="3075795840572241758">"Номер сборки"</string>
-    <string name="module_version" msgid="7329118610303805859">"Системное обновление Google Play"</string>
+    <string name="module_version" msgid="7329118610303805859">"Системное обновление"</string>
     <string name="device_info_not_available" msgid="8062521887156825182">"Недоступно"</string>
     <string name="device_status_activity_title" msgid="1411201799384697904">"Общая информация"</string>
     <string name="device_status" msgid="607405385799807324">"Общая информация"</string>
@@ -1741,7 +1741,7 @@
     <string name="location_access_summary" msgid="69031404093194341">"Разрешить приложениям использовать данные о вашем местоположении"</string>
     <string name="location_sources_heading" msgid="1278732419851088319">"Определение местоположения"</string>
     <string name="about_settings" product="tablet" msgid="593457295516533765">"О планшете"</string>
-    <string name="about_settings" product="default" msgid="1743378368185371685">"О телефоне"</string>
+    <string name="about_settings" product="default" msgid="1743378368185371685">"О SC.Phone"</string>
     <string name="about_settings" product="device" msgid="6717640957897546887">"Об устройстве"</string>
     <string name="about_settings" product="emulator" msgid="221313099578564438">"Об эмулированном устройстве"</string>
     <string name="about_settings_summary" msgid="3371517697156165959">"Просмотр юридической информации, состояния планшетного ПК и версии ПО"</string>
@@ -1752,7 +1752,7 @@
     <string name="safety_and_regulatory_info" msgid="5103161279848427185">"Безопасность и соответствие стандартам"</string>
     <string name="copyright_title" msgid="865906688917260647">"Авторские права"</string>
     <string name="license_title" msgid="1990487604356037871">"Лицензия"</string>
-    <string name="module_license_title" msgid="258743239066841860">"Лицензии системного обновления Google Play"</string>
+    <string name="module_license_title" msgid="258743239066841860">"Лицензии системного обновления"</string>
     <string name="terms_title" msgid="7697580845616764642">"Условия использования"</string>
     <string name="webview_license_title" msgid="2813507464175738967">"Системная лицензия WebView"</string>
     <string name="wallpaper_attributions" msgid="3645880512943433928">"Обои"</string>
@@ -4067,7 +4067,7 @@
     <string name="users_summary" msgid="1674864467098487328">"Вы вошли как <xliff:g id="USER_NAME">%1$s</xliff:g>"</string>
     <string name="payment_summary" msgid="3472482669588561110">"По умолчанию: <xliff:g id="APP_NAME">%1$s</xliff:g>"</string>
     <string name="backup_disabled" msgid="485189128759595412">"Резервное копирование отключено"</string>
-    <string name="android_version_summary" msgid="2935995161657697278">"Обновлено до Android <xliff:g id="VERSION">%1$s</xliff:g>"</string>
+    <string name="android_version_summary" msgid="2935995161657697278">"Обновлено до SafeCallsOS 17.0.0 - Android <xliff:g id="VERSION">%1$s</xliff:g>"</string>
     <string name="android_version_pending_update_summary" msgid="487831391976523090">"Доступно обновление"</string>
     <string name="disabled_by_policy_title" msgid="627023216027648534">"Действие запрещено"</string>
     <string name="disabled_by_policy_title_adjust_volume" msgid="3208724801293696486">"Невозможно изменить громкость"</string>

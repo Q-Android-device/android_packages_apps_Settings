@@ -70,8 +70,8 @@ import com.android.settings.deviceinfo.PrivateVolumeSettings;
 import com.android.settings.deviceinfo.PublicVolumeSettings;
 import com.android.settings.deviceinfo.StorageDashboardFragment;
 import com.android.settings.deviceinfo.StorageSettings;
+import com.android.settings.deviceinfo.aboutphone.AboutPhoneFragment;
 import com.android.settings.deviceinfo.aboutphone.MyDeviceInfoFragment;
-import com.android.settings.deviceinfo.firmwareversion.FirmwareVersionSettings;
 import com.android.settings.deviceinfo.legal.ModuleLicensesDashboard;
 import com.android.settings.display.NightDisplaySettings;
 import com.android.settings.dream.DreamSettings;
@@ -124,6 +124,7 @@ import com.android.settings.password.ChooseLockPattern;
 import com.android.settings.print.PrintJobSettingsFragment;
 import com.android.settings.print.PrintSettingsFragment;
 import com.android.settings.privacy.PrivacyDashboardFragment;
+import com.android.settings.SafeCallsOSSettings;
 import com.android.settings.security.CryptKeeperSettings;
 import com.android.settings.security.LockscreenDashboardFragment;
 import com.android.settings.security.SecuritySettings;
@@ -147,6 +148,8 @@ import com.android.settings.wifi.calling.WifiCallingSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
 import com.android.settings.wifi.savedaccesspoints.SavedAccessPointsWifiSettings;
 import com.android.settings.wifi.tether.WifiTetherSettings;
+
+import com.crdroid.settings.crDroidSettingsLayout;
 
 public class SettingsGateway {
 
@@ -175,10 +178,10 @@ public class SettingsGateway {
             UserDictionaryList.class.getName(),
             UserDictionarySettings.class.getName(),
             DisplaySettings.class.getName(),
+            AboutPhoneFragment.class.getName(),
             MyDeviceInfoFragment.class.getName(),
             ModuleLicensesDashboard.class.getName(),
             ManageApplications.class.getName(),
-            FirmwareVersionSettings.class.getName(),
             ManageAssist.class.getName(),
             ProcessStatsUi.class.getName(),
             NotificationStation.class.getName(),
@@ -283,7 +286,9 @@ public class SettingsGateway {
             PreviouslyConnectedDeviceDashboardFragment.class.getName(),
             BatterySaverScheduleSettings.class.getName(),
             MobileNetworkListFragment.class.getName(),
-            GlobalActionsPanelSettings.class.getName()
+            GlobalActionsPanelSettings.class.getName(),
+			SafeCallsOSSettings.class.getName(),
+            crDroidSettingsLayout.class.getName(),
     };
 
     public static final String[] SETTINGS_FOR_RESTRICTED = {
@@ -319,8 +324,10 @@ public class SettingsGateway {
             Settings.LanguageAndInputSettingsActivity.class.getName(),
             Settings.DateTimeSettingsActivity.class.getName(),
             Settings.EnterprisePrivacySettingsActivity.class.getName(),
+            Settings.AboutPhoneFragment.class.getName(),
             Settings.MyDeviceInfoActivity.class.getName(),
             Settings.ModuleLicensesActivity.class.getName(),
             UserBackupSettingsActivity.class.getName(),
+            Settings.crDroidSettingsLayoutActivity.class.getName(),
     };
 }

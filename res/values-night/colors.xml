@@ -27,5 +27,10 @@
     <color name="notification_importance_selection_bg">@*android:color/material_grey_800</color>
     <color name="notification_importance_button_selected">#AECBFA</color> <!-- material blue 200 -->
     <color name="notification_importance_button_unselected">#5F6368</color>
+
+    <color name="text_dark">#ffffff</color> <!-- Primary text color -->
+    <color name="about_background">#ff242424</color> <!-- Primary dark -->
+    <color name="about_dark_background">#ff242424</color> <!-- Primary light (Floating dialogs) -->
+    <color name="divider">#1A1A1A</color>
 </resources>
 

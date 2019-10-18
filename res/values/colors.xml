@@ -54,7 +54,7 @@
     <color name="icon_accent">#ffabffec</color>
 
     <!-- Accessibility SUW colors -->
-    <color name="material_blue_500">#4285F4</color>
+    <color name="material_blue_500">#e16e36</color>
     <color name="material_blue_700">#3367D6</color>
     <color name="material_grey_100">#f5f5f5</color>
     <color name="material_grey_200">#ffffff</color>
@@ -67,7 +67,7 @@
     <color name="message_bubble_outgoing">#ffffffff</color>
     <color name="message_icon_background_incoming">#689f38</color>
     <color name="message_icon_text_incoming">#ffffffff</color>
-    <color name="message_icon_background_outgoing">#4285f4</color>
+    <color name="message_icon_background_outgoing">#e16e36</color>
     <color name="message_icon_text_outgoing">#ffffffff</color>
 
     <color name="usage_graph_dots">#B0BEC5</color>
@@ -147,4 +147,11 @@
     <!-- Dialog background color -->
     <color name="dialog_background">@*android:color/background_device_default_light</color>
 
+    <color name="homepage_safecallsos_background">#B8CECD</color>
+    <color name="homepage_tweaks_background">#3C7C86</color>
+
+    <color name="text_dark">#202020</color> <!-- Primary text color -->
+    <color name="about_background">#FAFAFA</color> <!-- Primary dark -->
+    <color name="about_dark_background">#FAFAFA</color> <!-- Primary light (Floating dialogs) -->
+    <color name="divider">#DCDCDC</color>
 </resources>

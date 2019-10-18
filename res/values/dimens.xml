@@ -115,7 +115,7 @@
     <dimen name="search_bar_margin">16dp</dimen>
 
     <dimen name="search_bar_height">48dp</dimen>
-    <dimen name="search_bar_corner_radius">2dp</dimen>
+    <dimen name="search_bar_corner_radius">8dp</dimen>
     <dimen name="search_bar_text_size">16dp</dimen>
     <dimen name="search_bar_card_elevation">2dp</dimen>
     <dimen name="search_bar_content_inset">64dp</dimen>
@@ -414,4 +414,18 @@
 
     <!-- System navigation settings illustration height -->
     <dimen name="system_navigation_illustration_height">320dp</dimen>
+
+    <dimen name="card_frame_margin">30dp</dimen>
+    <dimen name="card_frame_margin_right">30dp</dimen>
+    <dimen name="card_row_margin_top">25dp</dimen>
+    <dimen name="drawable_sides">25dp</dimen>
+    <dimen name="text_margin_left">15dp</dimen>
+    <dimen name="text_margin_right">15dp</dimen>
+    <dimen name="image_top_margin">20dp</dimen>
+    <dimen name="title_top_margin">5dp</dimen>
+    <dimen name="desc_top_margin">10dp</dimen>
+    <dimen name="desc_bottom_margin">20dp</dimen>
+    <dimen name="title_size">16sp</dimen>
+    <dimen name="desc_size">12sp</dimen>
+
 </resources>

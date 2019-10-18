@@ -42,7 +42,7 @@
     <bool name="config_show_camera_laser_sensor">false</bool>
 
     <!-- Fully-qualified class name for the implementation of the FeatureFactory to be instantiated. -->
-    <string name="config_featureFactory" translatable="false">com.android.settings.overlay.FeatureFactoryImpl</string>
+    <string name="config_featureFactory" translatable="false">com.google.android.settings.overlay.FeatureFactoryImpl</string>
 
     <!-- Package name and fully-qualified class name for the wallpaper picker activity. -->
     <string name="config_wallpaper_picker_package" translatable="false">com.android.settings</string>
@@ -184,7 +184,7 @@
         Whether or not the homepage should be powered by legacy suggestion (versus contextual cards)
         Default to true as not all devices support contextual cards.
     -->
-    <bool name="config_use_legacy_suggestion">true</bool>
+    <bool name="config_use_legacy_suggestion">false</bool>
 
     <!-- Whether or not homepage should display user's account avatar -->
     <bool name="config_show_avatar_in_homepage">false</bool>
@@ -256,6 +256,9 @@
 
     <!-- Whether to show a preference item for mobile plan -->
     <bool name="config_show_mobile_plan">true</bool>
+
+    <!-- Whether to add AGPS parameter settings -->
+    <bool name="config_agps_enabled">false</bool>
 
     <!-- Whether none security option is hide or not  (country specific). -->
     <bool name="config_hide_none_security_option">false</bool>

@@ -25,10 +25,12 @@ import android.telephony.SubscriptionInfo;
 import android.telephony.SubscriptionManager;
 import android.telephony.TelephonyManager;
 import android.telephony.UiccSlotInfo;
+import android.text.TextUtils;
 
 import androidx.annotation.VisibleForTesting;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class SubscriptionUtil {

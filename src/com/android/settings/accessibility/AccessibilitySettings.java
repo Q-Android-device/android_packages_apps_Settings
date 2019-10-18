@@ -60,7 +60,6 @@ import com.android.internal.view.RotationPolicy.RotationPolicyListener;
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
-import com.android.settings.display.DarkUIPreferenceController;
 import com.android.settings.display.ToggleFontSizePreferenceFragment;
 import com.android.settings.search.BaseSearchIndexProvider;
 import com.android.settingslib.RestrictedLockUtils.EnforcedAdmin;
@@ -135,8 +134,6 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
             "daltonizer_preference";
     private static final String ACCESSIBILITY_CONTROL_TIMEOUT_PREFERENCE =
             "accessibility_control_timeout_preference_fragment";
-    private static final String DARK_UI_MODE_PREFERENCE =
-            "dark_ui_mode_accessibility";
     private static final String LIVE_CAPTION_PREFERENCE_KEY =
             "live_caption";
 
@@ -245,8 +242,6 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
     private SwitchPreference mToggleInversionPreference;
     private ColorInversionPreferenceController mInversionPreferenceController;
     private AccessibilityHearingAidPreferenceController mHearingAidPreferenceController;
-    private SwitchPreference mDarkUIModePreference;
-    private DarkUIPreferenceController mDarkUIPreferenceController;
     private LiveCaptionPreferenceController mLiveCaptionPreferenceController;
 
     private int mLongPressTimeoutDefault;
@@ -530,12 +525,6 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
         // Vibrations.
         mVibrationPreferenceScreen = findPreference(VIBRATION_PREFERENCE_SCREEN);
 
-        // Dark Mode.
-        mDarkUIModePreference = findPreference(DARK_UI_MODE_PREFERENCE);
-        mDarkUIPreferenceController = new DarkUIPreferenceController(getContext(),
-                DARK_UI_MODE_PREFERENCE);
-        mDarkUIPreferenceController.setParentFragment(this);
-        mDarkUIPreferenceController.displayPreference(getPreferenceScreen());
     }
 
     private void updateAllPreferences() {
@@ -750,9 +739,6 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
         // If the quick setting is enabled, the preference MUST be enabled.
         mInversionPreferenceController.updateState(mToggleInversionPreference);
 
-        // Dark Mode
-        mDarkUIPreferenceController.updateState(mDarkUIModePreference);
-
         // Power button ends calls.
         if (KeyCharacterMap.deviceHasKey(KeyEvent.KEYCODE_POWER)
                 && Utils.isVoiceCapable(getActivity())) {
@@ -862,7 +848,7 @@ public class AccessibilitySettings extends SettingsPreferenceFragment implements
         final float currentScale = Settings.System.getFloat(getContext().getContentResolver(),
                 Settings.System.FONT_SCALE, 1.0f);
         final Resources res = getContext().getResources();
-        final String[] entries = res.getStringArray(R.array.entries_font_size);
+        final String[] entries = res.getStringArray(R.array.entries_font_size_percent);
         final String[] strEntryValues = res.getStringArray(R.array.entryvalues_font_size);
         final int index = ToggleFontSizePreferenceFragment.fontSizeValueToIndex(currentScale,
                 strEntryValues);

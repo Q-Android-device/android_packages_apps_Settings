@@ -1,3 +1,5 @@
+package com.android.settings.development;
+
 /*
  * Copyright (C) 2017 The Android Open Source Project
  *
@@ -14,72 +16,124 @@
  * limitations under the License.
  */
 
-package com.android.settings.development;
+import static com.google.common.truth.Truth.assertThat;
+
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import android.content.Context;
-import android.os.Build;
 import android.provider.Settings;
 
-import androidx.annotation.VisibleForTesting;
-import androidx.preference.Preference;
+import androidx.preference.PreferenceScreen;
 import androidx.preference.SwitchPreference;
 
-import com.android.settings.core.PreferenceControllerMixin;
-import com.android.settingslib.development.DeveloperOptionsPreferenceController;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.robolectric.RobolectricTestRunner;
+import org.robolectric.RuntimeEnvironment;
 
-public class NotificationChannelWarningsPreferenceController extends
-        DeveloperOptionsPreferenceController implements Preference.OnPreferenceChangeListener,
-        PreferenceControllerMixin {
+@RunWith(RobolectricTestRunner.class)
+public class NotificationChannelWarningsPreferenceControllerTest {
 
-    private static final String SHOW_NOTIFICATION_CHANNEL_WARNINGS_KEY =
-            "show_notification_channel_warnings";
+    @Mock
+    private SwitchPreference mPreference;
+    @Mock
+    private PreferenceScreen mScreen;
 
-    @VisibleForTesting
-    final static int SETTING_VALUE_ON = 1;
-    @VisibleForTesting
-    final static int SETTING_VALUE_OFF = 0;
-    @VisibleForTesting
-    final static int DEBUGGING_ENABLED = 1;
-    @VisibleForTesting
-    final static int DEBUGGING_DISABLED = 0;
+    private Context mContext;
+    private NotificationChannelWarningsPreferenceController mController;
 
-    public NotificationChannelWarningsPreferenceController(Context context) {
-        super(context);
+    @Before
+    public void setup() {
+        MockitoAnnotations.initMocks(this);
+        mContext = RuntimeEnvironment.application;
+        mController = new NotificationChannelWarningsPreferenceController(mContext);
+        when(mScreen.findPreference(mController.getPreferenceKey())).thenReturn(mPreference);
+        mController.displayPreference(mScreen);
     }
 
+    @Test
+    public void onPreferenceChange_settingEnabled_shouldEnableNotificationChannelWarnings() {
+        mController.onPreferenceChange(mPreference, true /* new value */);
 
-    @Override
-    public String getPreferenceKey() {
-        return SHOW_NOTIFICATION_CHANNEL_WARNINGS_KEY;
+        final int mode = Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.SHOW_NOTIFICATION_CHANNEL_WARNINGS, -1 /* default */);
+
+        assertThat(mode).isEqualTo(
+                NotificationChannelWarningsPreferenceController.SETTING_VALUE_ON);
     }
 
-    @Override
-    public boolean onPreferenceChange(Preference preference, Object newValue) {
-        final boolean isEnabled = (Boolean) newValue;
+    @Test
+    public void onPreferenceChange_settingDisabled_shouldDisableNotificationChannelWarnings() {
+        mController.onPreferenceChange(mPreference, false /* new value */);
+
+        final int mode = Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.SHOW_NOTIFICATION_CHANNEL_WARNINGS, -1 /* default */);
+
+        assertThat(mode).isEqualTo(
+                NotificationChannelWarningsPreferenceController.SETTING_VALUE_OFF);
+    }
+
+    @Test
+    public void updateState_settingEnabled_preferenceShouldBeChecked() {
         Settings.Global.putInt(mContext.getContentResolver(),
                 Settings.Global.SHOW_NOTIFICATION_CHANNEL_WARNINGS,
-                isEnabled ? SETTING_VALUE_ON : SETTING_VALUE_OFF);
-        return true;
+                NotificationChannelWarningsPreferenceController.SETTING_VALUE_ON);
+
+        mController.updateState(mPreference);
+
+        verify(mPreference).setChecked(true);
     }
 
-    @Override
-    public void updateState(Preference preference) {
-        final int defaultWarningEnabled = isDebuggable() ? DEBUGGING_ENABLED : DEBUGGING_DISABLED;
-        final int mode = Settings.Global.getInt(mContext.getContentResolver(),
-                Settings.Global.SHOW_NOTIFICATION_CHANNEL_WARNINGS, defaultWarningEnabled);
-        ((SwitchPreference) mPreference).setChecked(mode != SETTING_VALUE_OFF);
-    }
-
-    @Override
-    protected void onDeveloperOptionsSwitchDisabled() {
-        super.onDeveloperOptionsSwitchDisabled();
+    @Test
+    public void updateState_settingDisabled_preferenceShouldNotBeChecked() {
         Settings.Global.putInt(mContext.getContentResolver(),
-                Settings.Global.SHOW_NOTIFICATION_CHANNEL_WARNINGS, SETTING_VALUE_OFF);
-        ((SwitchPreference) mPreference).setChecked(false);
+                Settings.Global.SHOW_NOTIFICATION_CHANNEL_WARNINGS,
+                NotificationChannelWarningsPreferenceController.SETTING_VALUE_OFF);
+
+        mController.updateState(mPreference);
+
+        verify(mPreference).setChecked(false);
     }
 
-    @VisibleForTesting
-    boolean isDebuggable() {
-        return Build.IS_ENG;
+    @Test
+    public void updateState_settingUndefinedDebuggingEnabled_preferenceShouldBeChecked() {
+        mController = spy(mController);
+        doReturn(true).when(mController).isDebuggable();
+        Settings.Global.putString(mContext.getContentResolver(),
+                Settings.Global.SHOW_NOTIFICATION_CHANNEL_WARNINGS, "NotAnInteger");
+
+        mController.updateState(mPreference);
+
+        verify(mPreference).setChecked(true);
+    }
+
+    @Test
+    public void updateState_settingUndefinedDebuggingDisabled_preferenceShouldNotBeChecked() {
+        mController = spy(mController);
+        doReturn(false).when(mController).isDebuggable();
+        Settings.Global.putString(mContext.getContentResolver(),
+                Settings.Global.SHOW_NOTIFICATION_CHANNEL_WARNINGS, "NotAnInteger");
+
+        mController.updateState(mPreference);
+
+        verify(mPreference).setChecked(false);
+    }
+
+    @Test
+    public void onDeveloperOptionsSwitchDisabled_preferenceShouldBeDisabled() {
+        mController.onDeveloperOptionsSwitchDisabled();
+        final int mode = Settings.Global.getInt(mContext.getContentResolver(),
+                Settings.Global.SHOW_NOTIFICATION_CHANNEL_WARNINGS, -1 /* default */);
+
+        assertThat(mode).isEqualTo(
+                NotificationChannelWarningsPreferenceController.SETTING_VALUE_OFF);
+        verify(mPreference).setChecked(false);
+        verify(mPreference).setEnabled(false);
     }
 }

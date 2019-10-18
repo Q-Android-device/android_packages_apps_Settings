@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <resources>
+    <!-- Settings -->
+    <string name="safecallsos_settings">Приватность SafeCallsOS</string>
+    <string name="safecallsos_settings_summary">Настройки приватности SafeCallsOS</string>
+
+    <!-- Selinux -->
+    <string name="selinux_status">Состояние защиты</string>
+    <string name="selinux_status_disabled">Отключена</string>
+    <string name="selinux_status_permissive">Актуально</string>
+    <string name="selinux_status_enforcing">Актуально</string>
+
+    <!-- About phone cards -->
+    <string name="card1">Название устройства</string>
+    <string name="card2">Общая информация</string>
+    <string name="card3">Версия\nAndroid</string>
+    <string name="card4">Версия SafeCallsOS</string>
+    <string name="card5">Уровень защиты</string>
+    <string name="card6">Поддержка</string>
+    <string name="cpu">Процессор</string>
+    <string name="storage">Память</string>
+    <string name="camera">Камера</string>
+    <string name="display">Дисплей</string>
+    <string name="status_default">IMEI, MAC, и др.</string>
+  </resources>

@@ -36,4 +36,13 @@
         android:shortcutShortLabel="@string/power_usage_summary_title" >
         <intent android:action="android.intent.action.POWER_USAGE_SUMMARY" />
     </shortcut>
+    <shortcut
+        android:shortcutId="manifest-shortcut-a-safecalls"
+        android:icon="@drawable/ic_settings_safecallsos"
+        android:shortcutShortLabel="@string/safecallsos_settings" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="com.app.vpn"
+            android:targetClass="com.app.vpn.MainActivity" />
+    </shortcut>
 </shortcuts>

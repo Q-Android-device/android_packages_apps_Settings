@@ -39,16 +39,16 @@ import com.google.android.setupcompat.template.FooterButton;
  */
 public class FingerprintEnrollFindSensor extends BiometricEnrollBase {
 
-    private static final int SENSOR_LOCATION_BACK = 0;
-    private static final int SENSOR_LOCATION_FRONT = 1;
-    private static final int SENSOR_LOCATION_LEFT = 2;
-    private static final int SENSOR_LOCATION_RIGHT = 3;
-
     @Nullable
     private FingerprintFindSensorAnimation mAnimation;
 
     private FingerprintEnrollSidecar mSidecar;
     private boolean mNextClicked;
+
+    private static final int SENSOR_LOCATION_BACK = 0;
+    private static final int SENSOR_LOCATION_FRONT = 1;
+    private static final int SENSOR_LOCATION_LEFT = 2;
+    private static final int SENSOR_LOCATION_RIGHT = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,11 +80,10 @@ public class FingerprintEnrollFindSensor extends BiometricEnrollBase {
         if (sensorLocation < SENSOR_LOCATION_BACK || sensorLocation > SENSOR_LOCATION_RIGHT) {
             sensorLocation = SENSOR_LOCATION_BACK;
         }
-        final String location = getResources().getStringArray(
+        final String customLocation = getResources().getStringArray(
                 R.array.security_settings_fingerprint_sensor_locations)[sensorLocation];
         TextView message = (TextView) findViewById(R.id.sud_layout_description);
-        message.setText(getString(
-                R.string.security_settings_fingerprint_enroll_find_sensor_message_cm, location));
+        message.setText(customLocation);
         if (sensorLocation == SENSOR_LOCATION_FRONT) {
             findViewById(R.id.fingerprint_sensor_location_front_overlay)
                     .setVisibility(View.VISIBLE);
